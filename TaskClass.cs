@@ -2,7 +2,7 @@
 
 namespace Todolist
 {
-    //Classe créer pour représenter une tâche à travers ses attributs 
+    //Classe créée pour représenter une tâche à travers ses attributs 
     public class TaskClass
     {
         public string Category { get; set; }
@@ -27,6 +27,6 @@ namespace Todolist
             Daysleft = aDaysleft;
         }
 
-        public TaskClass() { }
+        public TaskClass() { } //Constructeur sans paramètres permettant la sérialisation
     }
 }

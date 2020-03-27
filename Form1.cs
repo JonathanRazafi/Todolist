@@ -12,7 +12,7 @@ namespace Todolist
     {
         public Form1()
         {
-            //Lors du lancement de l'application, les données sont extraites du fichier XML, le statut des tâches et la durée restante est mis à jour et elles sont affichées
+            ///Lors du lancement de l'application, les données sont extraites du fichier XML, le statut des tâches et la durée restante est mis à jour et elles sont affichées
             InitializeComponent();
             List<TaskClass> Tasklist = Deserialize();
             for (int i = 0; i < Tasklist.Count; i++)
@@ -77,7 +77,7 @@ namespace Todolist
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Renvois des données de la tâche sélectionné dans le datagridview de l'interface vers les textboxs (utiliser pour simplifier l'usage des fonctions ajout, modification et suppression de tâche
+            //Renvois des données de la tâche sélectionné dans le datagridview de l'interface vers les textboxs (utiliser pour simplifier l'usage des fonctions ajout, modification et suppression de tâche)
             int index = e.RowIndex;
             DataGridViewRow Selectedrow = dataGridView1.Rows[index];
             CategoryText.Text = Selectedrow.Cells[0].Value.ToString();
@@ -116,7 +116,7 @@ namespace Todolist
 
         static void Serialize(List<TaskClass> Tasklist)
         {
-            //Méthode permettant de transcrire les données d'une liste dans le fichier XML (processus inverse de la méthode deserialize
+            //Méthode permettant de transcrire les données d'une liste dans le fichier XML (processus inverse de la méthode deserialize)
             XmlSerializer XmlTask = new XmlSerializer(typeof(List<TaskClass>));
             StreamWriter Write = new StreamWriter(@"C:\Users\jonat\Documents\Village de l'emploi\Todolist project\TodolistC#\Todolist\bin\Debug\TaskData.xml");
             XmlTask.Serialize(Write, Tasklist);
@@ -145,7 +145,7 @@ namespace Todolist
 
         static List<TaskClass> OngoingTask(List<TaskClass> Tasklist)
         {
-            //Méthode permettant de lister uniquement les tâches non réalisé (Progress < 100%) 
+            //Méthode permettant de lister uniquement les tâches non réalisés (Progress < 100%) 
             for (int i = 0; i<Tasklist.Count; i++)
             {if (Tasklist[i].Progress == 100) { Tasklist.Remove(Tasklist[i]); i--; }}
             return Tasklist;
