@@ -107,7 +107,7 @@ namespace Todolist
             //Méthode permettant de récupérer les données stockées dans le fichier XML sous forme d'une liste 
             List<TaskClass> Tasklist;
             XmlSerializer XmlTaskDes = new XmlSerializer(typeof(List<TaskClass>));
-            TextReader rdr = new StreamReader(@"C:\Users\jonat\Desktop\Village de l'emploi\Todolist project\TodolistC#\Todolist\bin\Debug\TaskData.xml");
+            TextReader rdr = new StreamReader(@"C:\Users\jonat\Documents\Village de l'emploi\Todolist project\TodolistC#\Todolist\bin\Debug\TaskData.xml");
             object Deserilized1 = XmlTaskDes.Deserialize(rdr);
             Tasklist = (List<TaskClass>)Deserilized1;
             rdr.Close();
@@ -118,7 +118,7 @@ namespace Todolist
         {
             //Méthode permettant de transcrire les données d'une liste dans le fichier XML (processus inverse de la méthode deserialize
             XmlSerializer XmlTask = new XmlSerializer(typeof(List<TaskClass>));
-            StreamWriter Write = new StreamWriter(@"C:\Users\jonat\Desktop\Village de l'emploi\Todolist project\TodolistC#\Todolist\bin\Debug\TaskData.xml");
+            StreamWriter Write = new StreamWriter(@"C:\Users\jonat\Documents\Village de l'emploi\Todolist project\TodolistC#\Todolist\bin\Debug\TaskData.xml");
             XmlTask.Serialize(Write, Tasklist);
             Write.Close();
         }
